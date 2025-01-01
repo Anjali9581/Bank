@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <style>
+        body{
+            padding: 0%;
+            margin: 0%;
+            /* background-color: coral; */
+        }
+        div{
+            height: 250px;
+            /* border:  2px solid; */
+            width: 600px;
+            background-color: purple;
+            color: white;
+            border-radius: 20px;
+        }
+        div ol{
+            display: flex;
+            list-style: none;
+           
+        }
+        div ol #li1{
+            /* border: 2px solid; */
+            width: 400px;
+            font-size: 18px;
+            word-spacing: 2px;
+        }
+        div ol #li2{
+            /* border: 2px solid; */
+            width: 200px;
+        }
+        img{
+            height: 200px;
+            width: 160px;
+        }
+    </style>
+     {% include 'nav.html' %}
+     <center>
+        <h1 style="color: crimson;">BANK DATA</h1>
+   <!-- {{data}} -->
+        {% for i in data %}
+       <div>
+         <ol>
+            <li id="li1">
+                <p> <b>Name</b> : {{i.name}}</p>
+          <p><b>Email</b> : {{i.email}}</p>
+          <p><b>Phone</b> : {{i.phone}}</p>
+         <p><b>Address</b> : {{i.address}}</p>
+         <p><b>Account Number</b> : {{i.bank_number}}</p>
+         <p><b>Balance</b> : {{i.Balance}}</p>
+         
+            </li>
+            <li id="li2">
+               <img src="{{ i.image.url }}" alt="Image">
+               
+            </li>
+         </ol>
+
+       </div>
+         
+       <br><br><br>
+        {% endfor %}
+        
+        <br>
+        <a href="{% url 'home' %}"><button type="submit">BACK TO HOME</button></a>
+     </center>
+</body>
+</html>

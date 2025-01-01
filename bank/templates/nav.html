@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        nav{
+            padding: 0px;
+            margin: 0px;
+            background-color:black;
+            height: 10vh;
+            text-align:center;
+            align-items: center;
+        }
+       ol {
+        height: inherit;
+          list-style-type: none;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          /* border: 2px solid; */
+          
+
+       }
+       li a{
+        color: aliceblue;
+        text-decoration: none;
+       }
+    </style>
+    <nav>
+        
+        <ol>
+            <li><a href="{% url 'home' %}">HOME</a></li>
+           <li> <a href="{% url 'details' %}">BANK</a></li>
+        </ol>
+    </nav>
+</body>
+</html>

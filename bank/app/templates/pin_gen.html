@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: darkseagreen;
+        }
+        img{
+            border-radius: 10px;
+        }
+    </style>
+     {% include 'nav.html' %}
+    <center>
+        <br><br>
+        <h1>Pin Generation</h1>
+        
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj6eeu8O4OAPgenExmRHZy9ZBdaTRHgAPDzQ&s" alt="">
+         <br><br>
+        <form action="" method="POST">
+            {% csrf_token %}
+           
+            <label for="">ACCOUNT NO:</label>
+            <input type="number" name="account" id=""><br>
+            <br>
+            <label for="">PIN</label>
+            <input type="number" name="pin" id=""><br>
+            <br>
+            <label for="">Re_Enter Pin:</label>
+            <input type="number" name="pin1" id=""><br>
+            <br>
+            <button type="submit">SUBMIT</button>
+        </form>
+        <br>
+        <a href="{% url 'home' %}"><button type="submit">BACK TO HOME</button></a>
+    
+    <!-- {% if message %}
+      <p>{{message}}</p>
+    {% endif %}
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif  %} -->
+
+    {% if error %}
+    <div style="color:red;">{{ error }}</div>
+    {% endif %}
+
+    {% if message %}
+        <div style="color:green;">{{ message }}</div>
+    {% endif %}
+    </center>
+</body>
+</html>

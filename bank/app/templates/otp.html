@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+</head>
+<body>
+    <style>
+        .inp input{
+            width: 50px;
+        }
+        body{
+            background-color: cadetblue;
+        }
+    </style>
+ {% include 'nav.html' %}
+<center>
+    <br><br><br>
+    <h1>Verify OTP Verify Account Number</h1>
+
+    
+     <form method="POST">
+        {% csrf_token %}
+      
+        <label for="number">Enter your account number:</label>
+        <input type="number" name="number" required><br><br>
+         
+       
+        {% if val == True %}
+
+
+        <br> <br>
+        <div class="inp">
+            <input placeholder="" type="text" name="otp_0" maxlength="1" required> 
+            <input placeholder="" type="text" name="otp_1" maxlength="1" required>
+            <input placeholder="" type="text" name="otp_2" maxlength="1" required> 
+            <input placeholder="" type="text" name="otp_3" maxlength="1" required> 
+        </div>
+        <br>
+
+        <button name="verify" type="submit">Verify</button>
+        {% else %}
+
+        <button  name="otp_send" type="submit">OTP Generation</button> 
+        {% endif  %}
+        
+        {% if error %}
+            <div style="color:red;">{{ error }}</div>
+        {% endif %}
+        
+        {% if success %}
+            <div style="color:green;">{{ success }}</div>
+        {% endif %}
+    </form> 
+</center>
+</body>
+</html>
